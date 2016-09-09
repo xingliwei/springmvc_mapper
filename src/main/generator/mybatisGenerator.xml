@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <classPathEntry location="mysql-connector-java-5.1.36.jar"/>
+
+    <context id="mybatisGeneratorDemo">
+        
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3307/mytest"
+                        userId="glaze_dbo" password="glaze"/>
+        
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!--实体类文件-->
+        <javaModelGenerator targetPackage="com.xlw.model" targetProject="../java"></javaModelGenerator>
+
+        <!--mapper.xml文件-->
+        <sqlMapGenerator targetPackage="/" targetProject="../resources/mybatis"/>
+        
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.xlw.client" targetProject="../java"/>
+
+        <table tableName="S_USER" domainObjectName="User"></table>
+
+    </context>
+</generatorConfiguration>
